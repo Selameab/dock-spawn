@@ -2331,6 +2331,10 @@ dockspawn.PanelContainer.prototype.destroy = function()
  */
 dockspawn.PanelContainer.prototype.performUndockToDialog = function(e, dragOffset)
 {
+    $.event.trigger({
+            type: "dockspawn.panelUndock",
+            sender: this
+    });
     this.undockInitiator.enabled = false;
     return this.dockManager.requestUndockToDialog(this, e, dragOffset);
 };
