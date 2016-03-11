@@ -2384,6 +2384,12 @@ dockspawn.PanelContainer.prototype.resize = function(width,  height)
     this._setPanelDimensions(width, height);
     this._cachedWidth = width;
     this._cachedHeight = height;
+    $.event.trigger({
+            type: "dockspawn.panelResized",
+            sender: this,
+            width: width,
+            height: height
+    });
 };
 
 dockspawn.PanelContainer.prototype._setPanelDimensions = function(width, height)
